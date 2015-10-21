@@ -7,10 +7,11 @@ var ApplicationStore = Fluxxor.createStore({
   initialize: function () {
     this._setNavbar();
     this._setTip();
+    this._setMenu();
     this.bindActions(
       CONSTANT.APPLICATION_NAVBAR_SET, 'onNavbarSet',
-      CONSTANT.APPLICATION_TIP_SET, 'onTipSet'
-
+      CONSTANT.APPLICATION_TIP_SET, 'onTipSet',
+      CONSTANT.APPLICATION_TOGGLE_MENU, 'onToggleMenu'
     );
   },
   _setNavbar: function (options) {
@@ -25,6 +26,13 @@ var ApplicationStore = Fluxxor.createStore({
       visible: false,
       text: ''
     },options);
+  },
+  _setMenu: function () {
+    this._isMenuOpen = this._isMenuOpen === undefined ? false : !this._isMenuOpen;
+    this.emit('change');
+  },
+  onToggleMenu: function () {
+    this._setMenu();
   },
   onNavbarSet: function (options) {
     this._setNavbar(options);
@@ -46,6 +54,9 @@ var ApplicationStore = Fluxxor.createStore({
   },
   getTip: function () {
     return this._tip;
+  },
+  getMenu: function () {
+    return this._isMenuOpen;
   }
 });
 

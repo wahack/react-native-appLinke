@@ -29,14 +29,16 @@ module.exports = React.createClass({
     }
   },
   componentDidMount: function () {
-    this.getFlux().actions.application.setNavbar({
-      title: '我的主页'
-    });
+    // this.getFlux().actions.application.setNavbar({
+    //   title: '我的主页'
+    // });
   },
   toLogin: function () {
+    console.log(this.props);
     this.props.navigator.push({
-      name: '登录',
-      index: 2
+      component: require('../route'),
+      index: 2,
+      title: '登录'
     });
   },
   _renderRow: function (order: Object, sectionID: number|string, rowID: number|string) {
@@ -47,7 +49,7 @@ module.exports = React.createClass({
       <View style={styles.container}>
         <View style={styles.banner}>
            <Image source={require('../../images/index/banner-bg.jpg')} style={styles.bgImage}>
-              <TouchableOpacity style={styles.touchableOpacity}>
+              <TouchableOpacity style={styles.touchableOpacity} onPress={this.toLogin}>
                 <Image source={require('../../images/index/to-recomm.png')} style={styles.toRecomm} />
               </TouchableOpacity>
               <TouchableHighlight>

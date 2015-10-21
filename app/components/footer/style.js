@@ -5,7 +5,7 @@ var {
 
 module.exports = StyleSheet.create({
   container: {
-    height: 40,
+    height: 55,
     backgroundColor: '#333',
     flexDirection: 'row',
     alignItems: 'center',

@@ -7,7 +7,6 @@ var {width, height} = Dimensions.get('window');
 module.exports = StyleSheet.create({
 
   container: Object.assign(require('../common/container'),{
-    paddingTop: 0,
     flexDirection: 'column',
     alignItems: 'stretch'
   }),

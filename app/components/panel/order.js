@@ -16,6 +16,7 @@ module.exports = React.createClass({
     //   name: 'order',
     //   index: 4
     // });
+    //require('../../images/icon/arrow-right.png')
   },
   render(){
     return <TouchableHighlight onPress={()=>this.toDetail(this.props.id)} style={styles.touchable}>
@@ -28,7 +29,7 @@ module.exports = React.createClass({
           <Text>13544193956 | 张三</Text>
         </View>
         <View style={styles.toDetail}>
-          <Image source={require('../../images/icon/arrow-right.png')} style={styles.arrow}/>
+          <Image source={require('image!arrow-right')} style={styles.arrow}/>
         </View>
       </View>
 

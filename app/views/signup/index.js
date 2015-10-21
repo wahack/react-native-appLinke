@@ -26,15 +26,16 @@ module.exports = React.createClass({
     };
   },
   componentDidMount: function () {
-    this.getFlux().actions.application.setNavbar({
-      title: '注册'
-    });
+    // this.getFlux().actions.application.setNavbar({
+    //   title: '注册'
+    // });
   },
   toHome: function () {
     console.log('to home');
     this.props.navigator.push({
-      name: 'index',
-      index: 1
+      component: require('../route'),
+      index: 1,
+      title: '登录'
     });
   },
   setPhoneState: function (isValid, value) {
@@ -54,7 +55,8 @@ module.exports = React.createClass({
   toLogin: function () {
     this.props.navigator.push({
       name: '登录',
-      index: 2
+      index: 2,
+      component: require('../route')
     });
   },
   render: function() {

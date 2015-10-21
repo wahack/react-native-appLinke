@@ -17,6 +17,6 @@ module.exports = _.assign({
   // dispatcher :
 
   APPLICATION_NAVBAR_SET: null,
-  APPLICATION_TIP_SET: null
-
+  APPLICATION_TIP_SET: null,
+  APPLICATION_TOGGLE_MENU: null
 }));

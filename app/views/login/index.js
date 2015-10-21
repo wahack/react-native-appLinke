@@ -4,7 +4,8 @@ var {
   Text,
   View,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  AlertIOS
 } = React;
 var moment = require('moment');
 var FluxMixin = require('../../mixins/flux-mixin');
@@ -36,9 +37,9 @@ module.exports = React.createClass({
     };
   },
   componentDidMount: function () {
-    this.getFlux().actions.application.setNavbar({
-      title: '登录'
-    });
+    // this.getFlux().actions.application.setNavbar({
+    //   title: '登录'
+    // });
   },
   componentDidUpdate: function () {
     if (this.state.loginStatus.desc === 'success'&&!this.hasToSuccess) {
@@ -47,12 +48,10 @@ module.exports = React.createClass({
     }
   },
   toSignup: function (e) {
-    console.log(e);
-    e.preventDefault();
-    e.stopPropagation();
     this.props.navigator.push({
-      name: '注册',
-      index: 3
+      component: require('../route'),
+      index: 3,
+      title: '注册'
     });
   },
   toIndex: function () {
@@ -73,6 +72,20 @@ module.exports = React.createClass({
     this.setState({
       phone: {isValid: isValid, value: value}
     });
+    // fetch("http://127.0.0.1:8000/Account/CheckPhone",
+    //   {
+    //     "method": "post",
+    //     "body": JSON.stringify({phone: "13544193956"})
+    //   }
+    // )
+    //   .then((response) => response.json())
+    //   .then((responseData) => {
+    //       AlertIOS.alert(
+    //           "POST Response",
+    //           "Response Body -> " + JSON.stringify(responseData.body)
+    //       );
+    //   })
+    //   .done();
   },
   setPwdState: function (isValid, value) {
     this.setState({

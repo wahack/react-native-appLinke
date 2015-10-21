@@ -14,9 +14,9 @@ module.exports = StyleSheet.create({
     flex:1
   },
   main: {
-    height: height-40-45-20,
+    height: height-45-20,
     flexDirection: 'row',
-    alignItems: 'stretch',
+    alignItems: 'stretch'
   },
   footer: {
     flex: 1

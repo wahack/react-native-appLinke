@@ -1,8 +1,7 @@
 var superagent = require('superagent');
 var request = require('superagent-defaults')(superagent);
 
-const host = 'http://127.0.0.1:8000';
-
+const host = 'http://localhost:8000';
 request.on('request', function (req) {
   if (req.url[0] === '/') {
     req.url = host + req.url;

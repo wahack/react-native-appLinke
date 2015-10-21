@@ -7,4 +7,7 @@ module.exports = {
   setTip: function (msg) {
     this.dispatch(CONSTANT.APPLICATION_TIP_SET, msg);
   },
+  toggleMenu: function () {
+    this.dispatch(CONSTANT.APPLICATION_TOGGLE_MENU);
+  }
 };
