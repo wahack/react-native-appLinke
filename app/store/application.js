@@ -11,7 +11,9 @@ var ApplicationStore = Fluxxor.createStore({
     this.bindActions(
       CONSTANT.APPLICATION_NAVBAR_SET, 'onNavbarSet',
       CONSTANT.APPLICATION_TIP_SET, 'onTipSet',
-      CONSTANT.APPLICATION_TOGGLE_MENU, 'onToggleMenu'
+      CONSTANT.APPLICATION_TOGGLE_MENU, 'onToggleMenu',
+      CONSTANT.APPLICATION_TOPVIEW_SET,'onTopViewSet',
+      CONSTANT.APPLICATION_HOMETAB_SET,'onHomeTabSet'
     );
   },
   _setNavbar: function (options) {
@@ -48,7 +50,14 @@ var ApplicationStore = Fluxxor.createStore({
     }
     this.emit('change');
   },
-
+  onTopViewSet: function (view) {
+    this.topView = view;
+    this.emit('change');
+  },
+  onHomeTabSet: function (tabName) {
+    this.homeTabName = tabName;
+    this.emit('change');
+  },
   getNavbar: function () {
     return this._navbar;
   },
@@ -57,6 +66,12 @@ var ApplicationStore = Fluxxor.createStore({
   },
   getMenu: function () {
     return this._isMenuOpen;
+  },
+  getTopView: function () {
+    return this.topView|| 'login';
+  },
+  getHomeTabName: function () {
+    return this.homeTabName || 'order';
   }
 });
 

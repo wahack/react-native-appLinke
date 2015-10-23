@@ -14,6 +14,18 @@ exports.isMobile = function (val) {
   }
   return result;
 };
+exports.isName = function (val) {
+  var result = {isValid: false, msg: ''};
+  val = trimAll(val);
+  if (!val) {
+    result.msg = '姓名为空';
+  } else if (/[^\u4e00-\u9fa5]/.test(val)) {
+    result.msg = '姓名必须为中文';
+  } else {
+    result.isValid = true;
+  }
+  return result;
+};
 exports.isPwdValid = function (val) {
   var result = {isValid: false, msg: ''};
   val = trimAll(val);

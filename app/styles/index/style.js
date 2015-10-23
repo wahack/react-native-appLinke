@@ -8,7 +8,8 @@ module.exports = StyleSheet.create({
 
   container: Object.assign(require('../common/container'),{
     flexDirection: 'column',
-    alignItems: 'stretch'
+    alignItems: 'stretch',
+    flex: 1
   }),
   banner: {
     height: 200

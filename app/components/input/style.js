@@ -15,12 +15,24 @@ module.exports = StyleSheet.create({
     width: 16,
     height: 16
   },
-  input: {
+  inputPanel:{
+    width: 280,
     height: 44,
-    borderColor: '#eaebed',
-    borderWidth: 1,
+    backgroundColor: '#fff',
+    flexDirection:'row',
+    alignItems: 'center',
     borderRadius: 6,
-    paddingLeft: 14,
-    fontSize: 14
+    borderWidth: 1,
+    borderColor: '#eaebed',
+  },
+  label:{
+    flex: 2,
+    textAlign: 'center',
+    fontSize: 14 
+  },
+  input: {
+    flex: 5,
+    fontSize: 14,
+    marginRight: 2
   }
 });

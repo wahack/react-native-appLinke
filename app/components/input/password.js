@@ -6,7 +6,8 @@ var {
   TouchableOpacity,
   Image,
   View,
-  Modal
+  Modal,
+  StyleSheet
 } = React;
 var styles = require('./style');
 var {isPwdValid, trimAll} = require('../../utils/functions');
@@ -20,7 +21,7 @@ module.exports = React.createClass({
   getIcon: function () {
     if (!this.state.pwd) return null;
     return <TouchableOpacity style={styles.iconWrap} onPress={this.clear}>
-      <Image style={styles.icon} source={require('../../images/icon/cha.png')} />
+      <Image style={styles.icon} source={require('image!cha')} />
     </TouchableOpacity>
   },
   clear: function () {
@@ -35,18 +36,25 @@ module.exports = React.createClass({
     }
   },
   render: function () {
-    return <View style={styles.inputWrap}>
+    return <View style={[styles.inputPanel,pwdStyles.pwd]}>
+    <Text style={styles.label}>登录密码</Text>
     <TextInput
         style={styles.input}
         onChangeText={this._onChangeText}
         onBlur={this.onBlur}
         value={this.state.pwd}
-        placeholder='密码'
+        placeholder='请输入8-18位密码'
         secureTextEntry={true}
         returnKeyType='go'
         maxLength={20}
     />
     {this.getIcon()}
     </View>
+  }
+});
+
+var pwdStyles = StyleSheet.create({
+  pwd: {
+    width: 280
   }
 });

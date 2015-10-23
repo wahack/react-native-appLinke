@@ -1,23 +1,32 @@
 var React = require('react-native');
+var _ = require('lodash');
 var {
   StyleSheet
 } = React;
+var Dimensions = require('Dimensions');
 
+var {width, height} = Dimensions.get('window');
 
 module.exports = StyleSheet.create({
-  container: Object.assign(require('../common/container'),{
-  }),
+  container: {
+    justifyContent: 'center',
+    flexDirection: 'row',
+    backgroundColor: '#f7f7f7',
+    flex: 1
+  },
   form: {
-    alignItems: 'stretch',
+    alignItems: 'center',
     flexDirection: 'column',
-    width: 240,
+    marginTop: 80,
   },
   toLogin: {
     color: '#f97f5f',
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
-  primaryBtn: {
+  btn: {
     marginTop: 80,
-    marginBottom: 100
+    marginBottom: 100,
+    borderRadius: 6,
+    width: 280
   }
 });

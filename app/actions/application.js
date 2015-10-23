@@ -9,5 +9,11 @@ module.exports = {
   },
   toggleMenu: function () {
     this.dispatch(CONSTANT.APPLICATION_TOGGLE_MENU);
+  },
+  setTopView: function (view) {
+    this.dispatch(CONSTANT.APPLICATION_TOPVIEW_SET,view);
+  },
+  setHomeTab: function (tabName) {
+    this.dispatch(CONSTANT.APPLICATION_HOMETAB_SET,tabName);
   }
 };

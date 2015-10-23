@@ -49,7 +49,7 @@ module.exports = React.createClass({
   },
   toSignup: function (e) {
     this.props.navigator.push({
-      component: require('../route'),
+      component: require('../signup'),
       index: 3,
       title: '注册'
     });
@@ -61,11 +61,15 @@ module.exports = React.createClass({
     });
   },
   toLogin: function () {
-    console.log('login');
-    this.getFlux().actions.me.login({
-      phone: this.state.phone.value,
-      pwd: this.state.pwd.value
-    });
+    // console.log('login');
+    // this.getFlux().actions.me.login({
+    //   phone: this.state.phone.value,
+    //   pwd: this.state.pwd.value
+    // });
+    if (!this.isFormValid()){
+      return AlertIOS.alert('请检查表单');
+    }
+    this.getFlux().actions.application.setTopView('index');
   },
 
   setPhoneState: function (isValid, value) {

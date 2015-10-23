@@ -46,6 +46,7 @@ module.exports = Fluxxor.createStore({
     this.createRecommendStatus.desc = 'success';
     this.createRecommendStatus.order = recommendOrder;
     this.emit('change');
+    setTimeout(()=>this.createRecommendStatus.desc=null,1000);
   },
   createRecommendOrderStart:function () {
     this.createRecommendStatus.desc = 'start';

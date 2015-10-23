@@ -3,46 +3,47 @@ var React = require('react-native');
 // var Router = require('react-native-router');
 const { View, Text, TabBarIOS} = React;
 
-const styles =  require('../styles/app');
-var Topbar = require('../components/topbar');
-var Footer = require('../components/footer');
-var Sidebar = require('../components/sidebar');
-var Flash = require('../components/modal/flash');
+// var Topbar = require('../components/topbar');
+// var Footer = require('../components/footer');
+// var Sidebar = require('../components/sidebar');
+// var Flash = require('../components/modal/flash');
 var Index = require('./index');
 var Login = require('./login');
 var Signup = require('./signup');
-var Order = require('./order');
+var Order = require('./order/list');
 var App = React.createClass({
 
   render() {
     return <View style={styles.application}>
       <View style={styles.main}>
         {this.props.children}
-        <Flash />
       </View>
     </View>
   }
 });
-// <App navigator={navigator}><Index navigator={navigator} /></App>
+
+
+
 module.exports = React.createClass({
-  _renderScene: function (route) {
-    switch (route.index) {
-      case 1:
-        return <App ><Index  navigator={this.props.navigator} /></App>
-      case 2:
-        return <App ><Login  navigator={this.props.navigator} /></App>
-      case 3:
-        return <App ><Signup navigator={this.props.navigator}  /></App>
-      case 4:
-        return <App ><Order  navigator={this.props.navigator} /></App>
+  _renderScene: function (route, navigator) {
+    console.log(route);
+    switch (route.name) {
+      case 'index':
+        return <App ><Index  navigator={navigator} /></App>
+      case 'login':
+        return <App ><Login  navigator={navigator} /></App>
+      case 'signup':
+        return <App ><Signup navigator={navigator}  /></App>
+      case 'order':
+        return <App ><Order  navigator={navigator} /></App>
       default:
-        return <Index />
+        return <App ><Index  navigator={navigator} /></App>
     }
   },
   render() {
     return (
       <App >
-        {this._renderScene(this.props.route||{index:1})}
+        {this._renderScene(this.props.route, this.props.navigator)}
       </App>
     )
   }

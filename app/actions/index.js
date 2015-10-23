@@ -1,6 +1,6 @@
 module.exports = {
   application: require('./application'),
-  // city: require('./city'),
+  city: require('./city'),
   // broker: require('./broker'),
   order: require('./order'),
   me: require('./me')

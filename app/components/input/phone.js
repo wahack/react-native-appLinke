@@ -6,7 +6,8 @@ var {
   TouchableOpacity,
   Image,
   View,
-  Modal
+  Modal,
+  AlertIOS
 } = React;
 var styles = require('./style');
 var hasPhone = {};
@@ -49,7 +50,8 @@ module.exports = React.createClass({
   _onBlur: function () {
     var phoneNum = this.state.phoneNum;
     if (!isMobile(phoneNum).isValid) {
-      this.getFlux().actions.application.setTip(isMobile(phoneNum).msg);
+      // this.getFlux().actions.application.setTip(isMobile(phoneNum).msg);
+      AlertIOS.alert(isMobile(phoneNum).msg);
     }
   },
   getIcon: function () {
@@ -58,11 +60,11 @@ module.exports = React.createClass({
     if (!phoneNum) return null;
     if (phoneNum.length < 11 || !isMobile(phoneNum).isValid) {
       return <TouchableOpacity style={styles.iconWrap} onPress={this.clear}>
-        <Image style={styles.icon} source={require('../../images/icon/cha.png')} />
+        <Image style={styles.icon} source={require('image!cha')} />
       </TouchableOpacity>
     }
     if (!checkPhoneType) {
-      return <Image style={[styles.iconWrap,styles.icon]} source={require('../../images/icon/gou.png')} />
+      return <Image style={[styles.iconWrap,styles.icon]} source={require('image!gou')} />
     }
     if (hasPhone[phoneNum] === undefined) {
       return <Image style={[styles.iconWrap,styles.icon]} source={require('../../images/icon/loading.png')} />
@@ -70,19 +72,19 @@ module.exports = React.createClass({
     // return;
     if (checkPhoneType === 'shouldExist') {
       if (hasPhone[phoneNum]) {
-        return  <Image style={[styles.iconWrap,styles.icon]} source={require('../../images/icon/gou.png')} />
+        return  <Image style={[styles.iconWrap,styles.icon]} source={require('image!gou')} />
       } else {//手机号未注册过
         return <TouchableOpacity style={styles.iconWrap} onPress={this.clear}>
-          <Image style={styles.icon} source={require('../../images/icon/cha.png')} />
+          <Image style={styles.icon} source={require('image!cha')} />
         </TouchableOpacity>
       }
     } else if (checkPhoneType === 'shouldNew') {
       if (!hasPhone[phoneNum]) {
-        return <Image style={[styles.iconWrap,styles.icon]} source={require('../../images/icon/gou.png')} />
+        return <Image style={[styles.iconWrap,styles.icon]} source={require('image!gou')} />
       } else {
         // this.flash('该手机号已注册过');
         return <TouchableOpacity style={styles.iconWrap} onPress={this.clear}>
-          <Image style={styles.icon} source={require('../../images/icon/cha.png')} />
+          <Image style={styles.icon} source={require('image!cha')} />
         </TouchableOpacity>
       }
     }
@@ -122,14 +124,14 @@ module.exports = React.createClass({
   },
   render: function () {
     var props = this.props;
-    return <View style={styles.inputWrap}>
+    return <View style={styles.inputPanel}>
+    <Text style={styles.label}>手机号码</Text>
     <TextInput
         style={styles.input}
         onChangeText={this._onChangeText}
         onBlur={this._onBlur}
         value={this.state.phoneNum}
-        placeholder='手机号码'
-        keyboardType='numeric'
+        placeholder='您的手机号码'
         returnKeyType='next'
         maxLength={11}
     />

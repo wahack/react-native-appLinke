@@ -43,8 +43,9 @@ module.exports = {
   },
   createRecommendOrder: function(opts) {
     var self = this;
-    nprogress.start();
+    // nprogress.start();
     self.dispatch(CONSTANT.ORDER_CREATE_RECOMMEND_START);
+    console.log(opts);
     request
       .post('/Order/SubmitOrder')
       .send({
@@ -54,11 +55,12 @@ module.exports = {
         clientKnowBroker: opts.isAnonymity ? 1 : 0
       })
       .end(function(err, res) {
-        nprogress.done();
+        // nprogress.done();
         if (err) {
           return self.dispatch(CONSTANT.ORDER_CREATE_RECOMMEND_ERROR,
             '网络错误');
         }
+
         if (res.body.success) {
           var order = res.body.data;
           return self.dispatch(CONSTANT.ORDER_CREATE_RECOMMEND_SUCCESS, {

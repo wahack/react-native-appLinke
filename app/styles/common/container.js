@@ -7,5 +7,6 @@ module.exports = {
   justifyContent: 'center',
   alignItems: 'stretch',
   flexDirection: 'row',
-  width: width
+  width: width,
+  flex: 1
 };

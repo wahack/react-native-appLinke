@@ -9,7 +9,7 @@ module.exports = {
   'POST /Order/BorrowMoney': function (req, res) {
     return res.json(createBorrow);
   },
-  'POST /Order/RecommendLoan': function (req, res) {
+  'POST /Order/SubmitOrder': function (req, res) {
     return res.json(createRecommend);
   },
   'POST /Member/GetMyLoan': function (req, res) {

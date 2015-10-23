@@ -54,10 +54,12 @@ module.exports = React.createClass({
   },
   toLogin: function () {
     this.props.navigator.push({
-      name: '登录',
-      index: 2,
-      component: require('../route')
+      title: '登录',
+      component: require('../login')
     });
+  },
+  toSignup: function () {
+
   },
   render: function() {
     return (
@@ -65,9 +67,9 @@ module.exports = React.createClass({
       <View style={styles.form}>
         <PhoneInput onChangeText={this.setPhoneState} checkPhoneType="shouldNew"/>
         <PwdInput onChangeText={this.setPwdState}/>
-        <PrimaryBtn onPress={this.toLogin} style={styles.primaryBtn} text="注册" status={this.isFormValid()?'active':'disabled'}/>
+        <PrimaryBtn onPress={this.toSignup} style={styles.btn} text="注册" status={this.isFormValid()?'active':'disabled'}/>
         <TouchableOpacity onPress={this.toLogin}>
-          <Text style={styles.toLogin}>登录</Text>
+          <Text style={styles.toLogin}>已注册 去登录</Text>
         </TouchableOpacity>
       </View>
       </View>

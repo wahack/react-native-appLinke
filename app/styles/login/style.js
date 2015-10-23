@@ -8,25 +8,25 @@ var Dimensions = require('Dimensions');
 var {width, height} = Dimensions.get('window');
 
 module.exports = StyleSheet.create({
-  container: _.assign({},{
+  container: {
     justifyContent: 'center',
     flexDirection: 'row',
     backgroundColor: '#f7f7f7',
-    width: width
-  }),
+    flex: 1
+  },
   form: {
-    alignItems: 'stretch',
+    alignItems: 'center',
     flexDirection: 'column',
-    width: 240,
-    marginTop: 80
+    marginTop: 80,
   },
   toSignup: {
     color: '#f97f5f',
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   btn: {
     marginTop: 80,
     marginBottom: 100,
-    borderRadius: 6
+    borderRadius: 6,
+    width: 280
   }
 });
