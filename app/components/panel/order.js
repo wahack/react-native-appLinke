@@ -9,7 +9,7 @@ const {
   Image
 } = React;
 const styles = require('./style');
-
+const AnimateFadeIn = require('../animate/fadeIn');
 module.exports = React.createClass({
   toDetail(id: string) {
     // this.props.navigator.push({
@@ -19,7 +19,7 @@ module.exports = React.createClass({
     //require('../../images/icon/arrow-right.png')
   },
   render(){
-    return <TouchableHighlight onPress={()=>this.toDetail(this.props.id)} style={styles.touchable}>
+    return <AnimateFadeIn><TouchableHighlight onPress={()=>this.toDetail(this.props.id)} style={styles.touchable}>
       <View style={styles.stage}>
         <View style={styles.brief}>
           <Text>
@@ -33,6 +33,6 @@ module.exports = React.createClass({
         </View>
       </View>
 
-    </TouchableHighlight>
+    </TouchableHighlight></AnimateFadeIn>
   }
 });
