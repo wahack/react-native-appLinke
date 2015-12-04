@@ -17,7 +17,7 @@ var appLinke = React.createClass({
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          说到付
         </Text>
         <Text style={styles.instructions}>
           To get started, edit index.android.js

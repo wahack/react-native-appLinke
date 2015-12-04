@@ -1,6 +1,5 @@
 var request = require('../utils/superagent');
 var meAdaptor = require('../entity/me');
-// var nprogress = require('../utils/nprogress');
 var CONSTANT = require('../constant');
 var muder = require('../utils/muder');
 

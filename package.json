@@ -13,8 +13,7 @@
     "lodash": "^3.10.1",
     "moment": "^2.10.6",
     "muder": "^0.1.0",
-    "react-native": "^0.13.0-rc",
-    "react-native-drawer": "^1.5.4",
+    "react-native": "^0.15.0",
     "superagent": "^1.4.0",
     "superagent-defaults": "^0.1.13"
   }

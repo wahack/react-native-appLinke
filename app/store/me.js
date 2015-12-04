@@ -3,7 +3,6 @@ var CONSTANT = require('../constant');
 var _ = require('lodash');
 var Model = require('backbone-model').Model;
 var trimList = require('../utils/functions').trimList;
-// var cookie = require('component-cookie');
 var toNum = require('../utils/functions').toNum;
 module.exports  = Fluxxor.createStore({
   initialize: function () {
@@ -76,9 +75,9 @@ module.exports  = Fluxxor.createStore({
     }, 500);
   },
   onSignupSuccess: function (wrap) {
-    cookie('token', wrap.token,{path:'/'});
-    cookie('time', wrap.timestamp,{path:'/'});
-    cookie('user', wrap.phone,{path:'/'});
+    // cookie('token', wrap.token,{path:'/'});
+    // cookie('time', wrap.timestamp,{path:'/'});
+    // cookie('user', wrap.phone,{path:'/'});
 
     this.signupStatus.desc = 'success';
     this.emit('change');
@@ -87,9 +86,9 @@ module.exports  = Fluxxor.createStore({
     }, 1000);
   },
   onLogOutSuccess: function () {
-    cookie('token',null, {path:'/'});
-    cookie('time', null,{path:'/'});
-    cookie('user', null,{path:'/'});
+    // cookie('token',null, {path:'/'});
+    // cookie('time', null,{path:'/'});
+    // cookie('user', null,{path:'/'});
     this.me.clear();
     this.initStatus();
     this.emit('change');

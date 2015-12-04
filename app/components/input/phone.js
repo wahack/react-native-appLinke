@@ -129,7 +129,6 @@ module.exports = React.createClass({
     <TextInput
         style={styles.input}
         onChangeText={this._onChangeText}
-        onBlur={this._onBlur}
         value={this.state.phoneNum}
         placeholder='您的手机号码'
         returnKeyType='next'

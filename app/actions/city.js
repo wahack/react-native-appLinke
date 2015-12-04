@@ -1,9 +1,7 @@
 // var request = require('../utils/superagent');
 var CONSTANT = require('../constant');
-// var objectPath = require('object-path');
 // var muder = require('../utils/muder');
 // var cityAdaptor = require('../entity/city');
-// var nprogress = require('../utils/nprogress');
 
 module.exports = {
   choose: function (city) {

@@ -1,9 +1,7 @@
 var request = require('../utils/superagent');
 var cardAdaptor = require('../entity/card');
-var nprogress = require('../utils/nprogress');
 var CONSTANT = require('../constant');
 var muder = require('../utils/muder');
-var note = require('../utils/note');
 var _ = require('lodash');
 
 module.exports = {

@@ -1,9 +1,7 @@
 var request = require('../utils/superagent');
 var CONSTANT = require('../constant/');
-var objectPath = require('object-path');
 var muder = require('../utils/muder');
 var brokerAdaptor = require('../entity/broker');
-var nprogress = require('../utils/nprogress');
 
 module.exports = {
   getList: function () {

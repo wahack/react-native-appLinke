@@ -41,7 +41,6 @@ module.exports = React.createClass({
     <TextInput
         style={styles.input}
         onChangeText={this._onChangeText}
-        onBlur={this.onBlur}
         value={this.state.pwd}
         placeholder='请输入8-18位密码'
         secureTextEntry={true}

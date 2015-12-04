@@ -1,9 +1,7 @@
 var request = require('../utils/superagent');
 var CONSTANT = require('../constant');
-var objectPath = require('object-path');
 var brokerAdaptor = require('../entity/broker');
 var muder = require('../utils/muder');
-var nprogress = require('../utils/nprogress');
 
 module.exports = {
   getDefaultBroker: function() {

@@ -13,7 +13,7 @@ var StoreWatchMixin = require('fluxxor').StoreWatchMixin;
 var PrimaryBtn = require('../../components/button/primary');
 var PhoneInput = require('../../components/input/phone');
 var PwdInput = require('../../components/input/password');
-
+var dismissKeyboard = require('dismissKeyboard')
 // var Flash = require('../../components/modal/flash');
 // var Example =  require('../index/example');
 // console.log(width, height);
@@ -100,9 +100,12 @@ module.exports = React.createClass({
     if (this.state.phone.isValid && this.state.pwd.isValid) return true;
     return false;
   },
+  dismissKeyboard:function (e) {
+    dismissKeyboard();
+  },
   render: function() {
     return (
-      <View style={styles.container}>
+      <View style={styles.container} onStartShouldSetResponder={this.dismissKeyboard} ref="container">
         <View style={styles.form}>
           <PhoneInput onChangeText={this.setPhoneState} />
           <PwdInput onChangeText={this.setPwdState}/>

@@ -1,6 +1,5 @@
 var request = require('../utils/superagent');
 var billAdaptor = require('../entity/bill');
-var nprogress = require('../utils/nprogress');
 var CONSTANT = require('../constant');
 var muder = require('../utils/muder');
 
